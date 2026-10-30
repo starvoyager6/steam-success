@@ -4,7 +4,33 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-We're going to find out what games are good and why. Or something like that.
+We're looking at Steam games — prices, tags, reviews, and concurrent players — to see what actually tracks with success.
+
+## Environment
+
+```sh
+conda env create -f environment.yml
+conda activate steam-success
+```
+
+## Data
+
+The raw dump is not committed (`data/` is gitignored). Get a Kaggle API token, then download [130k Steam Games: Prices, Tags, Reviews, CCU](https://www.kaggle.com/datasets/sibamsamanta07/130k-steam-games-prices-tags-reviews-ccu) into `data/raw`.
+
+1. Create a token at [kaggle.com/settings/api](https://www.kaggle.com/settings/api) (Generate New Token) and copy it.
+
+2. Save it locally (replace the placeholder with your token):
+
+```sh
+mkdir -p ~/.kaggle && echo 'YOUR_KAGGLE_API_TOKEN' > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+```
+
+3. Activate this project's conda env so the `kaggle` CLI is available, then from the repo root:
+
+```sh
+kaggle datasets download sibamsamanta07/130k-steam-games-prices-tags-reviews-ccu \
+  -p data/raw --unzip
+```
 
 ## Project Organization
 

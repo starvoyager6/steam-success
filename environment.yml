@@ -18,4 +18,5 @@ dependencies:
   - pytest
   - pip:
     - python-dotenv
+    - kaggle
     - -e .
